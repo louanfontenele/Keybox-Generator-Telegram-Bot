@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.env  # VERY IMPORTANT:  Don't commit your .env file!
+venv/
+
+# Other
+keybox.xml
+ecPrivateKey.pem
+certificate.pem
+rsaPrivateKey.pem
