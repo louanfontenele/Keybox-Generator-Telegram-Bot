@@ -2,102 +2,86 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Telegram bot that generates Android `keybox.xml` files for device attestation. Built with `python-telegram-bot` and OpenSSL. Easy to deploy and use, featuring a clean and interactive interface with inline keyboards.
+A Telegram bot that generates Android `keybox.xml` files for device attestation. Built with `python-telegram-bot` and OpenSSL.  Features user limits, a VIP system, and an admin panel for managing users.
 
 ## ✨ Features
 
-*   **⚡️ Instant Keybox Generation:** Create `keybox.xml` files effortlessly using the `/generate` command or a simple button tap.
-*   **🤖 Interactive & Intuitive:**  Leverages Telegram's inline keyboards for a streamlined and user-friendly experience.
-*   **📦 File & Text Output:** Receive the generated keybox as a convenient file attachment or view the XML directly within the chat – the choice is yours!
-*   **🧐 Clear Error Handling:**  Provides informative error messages should any issues arise during key generation.
-*   **❓ Help & Source Code Access:**  Utilize the `/help` command to access the GitHub repository containing comprehensive documentation and the source code.
-*   **🔒 Secure Configuration:**  Employs a `.env` file to securely store your bot token, ensuring its confidentiality.
-*   **⚙️ Effortless Setup:**  Includes a `requirements.txt` file to facilitate easy installation of all required dependencies.
+*   **⚡️ Instant Keybox Generation:** Create `keybox.xml` files with `/generate` or a button tap.
+*   **🤖 Interactive Interface:**  Uses Telegram's inline keyboards.
+*   **📦 File & Text Output:** Receive the keybox as a file or as text in the chat.
+*   **🧐 Clear Error Handling:** Informative error messages.
+*   **❓ Help & Source Code:**  `/help` command links to the GitHub repo.
+*   **🔒 Secure Configuration:**  Uses a `.env` file for the bot token.
+*   **⚙️ Easy Setup:** `requirements.txt` for easy dependency installation.
+*   **👤 User Limits:**  Regular users have a daily limit (default: 5 keyboxes).
+*   **👑 VIP Status:**  Admin can grant VIP status to remove limits.
+*   **🛡️ Admin Panel:** `/admin` command (for admin user) to manage users and view data.
+*   **💾 Data Persistence:**  User data is saved to `user_data.json`.
 
 ## 📝 Requirements
 
 *   Python 3.7+
-*   `python-telegram-bot[all]` (Install using: `pip install -r requirements.txt`)
-*   `python-dotenv` (Install using: `pip install -r requirements.txt`)
-*   OpenSSL (typically pre-installed on Linux/macOS; see installation instructions below if needed).
+*   `python-telegram-bot[all]` (Install: `pip install -r requirements.txt`)
+*   `python-dotenv` (Install: `pip install -r requirements.txt`)
+*   OpenSSL (usually pre-installed; see below)
 
 ## ⬇️ Installation and Usage
 
-1.  **Clone the Repository:**
-
+1.  **Clone:**
     ```bash
     git clone https://github.com/CRZX1337/Keybox-Generator-Telegram-Bot.git
     cd Keybox-Generator-Telegram-Bot
     ```
 
-2.  **Set Up a Virtual Environment (Strongly Recommended):**
-
+2.  **Virtual Environment (Recommended):**
     ```bash
     python3 -m venv venv
-    source venv/bin/activate  # For Linux/macOS
-    venv\Scripts\activate      # For Windows
+    source venv/bin/activate  # Linux/macOS
+    venv\Scripts\activate      # Windows
     ```
 
 3.  **Install Dependencies:**
-
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Create a `.env` File (and Keep It Secret!):**
-
+4.  **`.env` File (Secret!):**
     ```
-    TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN_HERE  # Replace with your actual bot token!
+    TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN_HERE
     ```
+    **Important:** `.env` file MUST be in your `.gitignore`.
 
-    **CRITICAL:** Ensure your `.env` file is listed in your `.gitignore` file to prevent accidental exposure of your bot token.
+5. **Set Admin User ID:**
+  Open `main.py` and change the value of `ADMIN_USER_ID` to *your* Telegram user ID.
 
-5.  **Run the Bot:**
-
+6.  **Run:**
     ```bash
     python main.py
     ```
 
-6.  **Interact with the Bot in Telegram:**
-
-    *   Use `/start` to initiate a conversation.
-    *   Use `/generate` (or the inline keyboard button) to generate a keybox.
-    *   Use `/help` for assistance and to access the source code link.
+7.  **Telegram:**
+    *   `/start`:  Welcome message.
+    *   `/generate`: Create a keybox (or use the button).
+    *   `/help`: Get help.
+    *   `/admin`: Access the admin panel (if you're the admin).
 
 ## Obtaining a Telegram Bot Token
 
-1.  Open Telegram and search for the **@BotFather** bot.
-2.  Start a chat with BotFather and send the `/newbot` command.
-3.  Follow the prompts to give your bot a name and a username.
-4.  BotFather will provide you with a bot token.  Copy this token and paste it into your `.env` file (as shown above).
+1.  Open Telegram, search for **@BotFather**.
+2.  Send `/newbot`.
+3.  Follow prompts, and paste the given Token in the `.env` file.
 
-## OpenSSL Installation (If Necessary)
+## OpenSSL Installation (if needed)
 
-*   **Debian/Ubuntu:**
-
-    ```bash
-    sudo apt-get update && sudo apt-get install openssl
-    ```
-
-*   **Fedora/CentOS/RHEL:**
-
-    ```bash
-    sudo yum install openssl
-    ```
-
-*   **macOS:**
-
-    ```bash
-    brew install openssl
-    ```
-    (If you use Homebrew)
-
-*   **Windows:**  Download and install a suitable OpenSSL binary distribution (e.g., from [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html)). Ensure the `openssl` executable is included in your system's PATH environment variable.
+*   **Debian/Ubuntu:** `sudo apt-get update && sudo apt-get install openssl`
+*   **Fedora/CentOS/RHEL:** `sudo yum install openssl`
+*   **macOS:** `brew install openssl` (with Homebrew)
+*   **Windows:**  Download OpenSSL (e.g., [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html)).  Ensure `openssl` is in your PATH.
 
 ## 🤝 Contributing
 
-Contributions, bug reports, and feature requests are welcome!  Feel free to open issues or submit pull requests on GitHub.
+Contributions welcome!
 
 ## 📜 License
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+MIT License (see the [LICENSE](LICENSE) file).
