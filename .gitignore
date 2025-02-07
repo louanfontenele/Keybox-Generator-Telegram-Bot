@@ -11,7 +11,7 @@ dist/
 .eggs/
 
 # Environments
-.env  # VERY IMPORTANT:  Don't commit your .env file!
+.env  
 venv/
 
 # Other
