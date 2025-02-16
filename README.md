@@ -1,4 +1,7 @@
-# Keybox Generator Telegram Bot 🚀🔑
+<div align="center">
+    <img src="logo.jpg" alt="Logo">
+</div>
+<p align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
